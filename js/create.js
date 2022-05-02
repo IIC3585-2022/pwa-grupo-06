@@ -23,7 +23,8 @@ function create() {
             }
             }).then(response => response.json())
       .then(json => {
-          console.log(json['code']);
+          console.log('matiaas')
+          console.log(json);
           fetch('/templates/room.html').then((response) => {
             response.text().then((data) => {
                 document.getElementById("content").innerHTML = data;
