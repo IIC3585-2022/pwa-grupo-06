@@ -34,31 +34,29 @@ function create() {
                 } else {
                     document.getElementById("icon_bool").innerHTML = "<img class=\"icono\" src=\"https://cdn-icons-png.flaticon.com/512/6276/6276686.png\" style=\"width: 60px;\" >";
                 }
-                if (json['is_host'] == true || json['is_host'] == 'true'){
-                    fetch('https://ctplmdc.herokuapp.com/spotify/is-authenticated', { 
-                        method: 'GET',
-                        credentials: 'include',
-                        headers: {
-                            "accept": "application/json",
-                            'Content-Type': 'application/json'
-                        }
+                fetch('https://ctplmdc.herokuapp.com/spotify/is-authenticated', { 
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        "accept": "application/json",
+                        'Content-Type': 'application/json'
+                    }
+                    }).then(response => response.json())
+                    .then(json => {
+                    if (json['status'] == false || json['status'] == 'false'){
+                        fetch('https://ctplmdc.herokuapp.com/spotify/get-auth-url', {
+                            method: 'GET',
+                            credentials: 'include',
+                            headers: {
+                                "accept": "application/json",
+                                'Content-Type': 'application/json'
+                            }
                         }).then(response => response.json())
-                        .then(json => {
-                        if (json['status'] == false || json['status'] == 'false'){
-                            fetch('https://ctplmdc.herokuapp.com/spotify/get-auth-url', {
-                                method: 'GET',
-                                credentials: 'include',
-                                headers: {
-                                    "accept": "application/json",
-                                    'Content-Type': 'application/json'
-                                }
-                            }).then(response => response.json())
-                            .then(json =>{
-                                window.location.replace(json['url'])
-                            });
-                        }
+                        .then(json =>{
+                            window.location.replace(json['url'])
                         });
-                }
+                    }
+                    });
             });
         });
         }).catch(err => alert(err))
