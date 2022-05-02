@@ -114,12 +114,13 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                         if (!response.ok){
                             return {}
                         } else {
-                            return response.json()
+                            return response.json();
                         }
                     })
                     .then(json => {
                         console.log(json);
                         document.getElementById("cover_art_url").innerHTML = `<img src=\"${json['image_url']}\">`;
+                        console.log((parseFloat(json['time']) /  parseFloat(json['duration']))*100)
                         document.getElementById('song-played-progress').value = (parseFloat(json['time']) /  parseFloat(json['duration']))*100
                     })}, 3000);
             });
