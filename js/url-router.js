@@ -108,7 +108,7 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                         }
                         });
                 }
-                fetch('https://ctplmdc.herokuapp.com/spotify/current-song', { 
+                setInterval(fetch('https://ctplmdc.herokuapp.com/spotify/current-song', { 
                     method: 'GET',
                     credentials: 'include',
                     headers: {
@@ -125,7 +125,7 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                     .then(json => {
                         console.log('matias')
                         console.log(json);
-                    });
+                    }), 3000);
             });
         });
     }
