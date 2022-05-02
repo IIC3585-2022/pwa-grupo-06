@@ -119,6 +119,7 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                     })
                     .then(json => {
                         console.log(json);
+                        document.getElementById("cover_art_url").innerHTML = json['image_url'];
                     })}, 3000);
             });
         });
