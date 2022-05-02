@@ -128,6 +128,11 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                         const date_duration = new Date(json['duration']);
                         document.getElementById('duration-minutes').innerHTML = date_duration.getMinutes();
                         document.getElementById('duration-seconds').innerHTML = date_duration.getSeconds();
+                        if (json['is_playing'] == false || json['is_playing'] == 'false'){
+                            document.getElementById('play-pause').classList.add('amplitude-paused');
+                        } else {
+                            document.getElementById('play-pause').classList.add('amplitude-playing');
+                        }
                     })}, 3000);
             });
         });
