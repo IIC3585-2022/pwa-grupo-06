@@ -125,7 +125,7 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                         const date_current = new Date(json['time']);
                         document.getElementById('current-minutes').innerHTML = date_current.getMinutes();
                         document.getElementById('current-seconds').innerHTML = date_current.getSeconds();
-                        const date_duration = new Date(json['time']);
+                        const date_duration = new Date(json['duration']);
                         document.getElementById('duration-minutes').innerHTML = date_duration.getMinutes();
                         document.getElementById('duration-seconds').innerHTML = date_duration.getSeconds();
                     })}, 3000);
