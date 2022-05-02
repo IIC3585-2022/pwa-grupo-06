@@ -93,7 +93,19 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                         }
                         }).then(response => response.json())
                         .then(json => {
-                        console.log(json);
+                        if (json['status'] == false || json['status'] == 'false'){
+                            fetch('https://ctplmdc.herokuapp.com/spotify/get-auth-url', {
+                                method: 'GET',
+                                credentials: 'include',
+                                headers: {
+                                    "accept": "application/json",
+                                    'Content-Type': 'application/json'
+                                }
+                            }).then(response => response.json())
+                            .then(json =>{
+                                console.log(json)
+                            });
+                        }
                         });
                 }
             });
