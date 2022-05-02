@@ -62,6 +62,23 @@ const urlLocationHandler = async () => {
     });
 }
 
+Amplitude.init({
+    "bindings": {
+      37: 'prev',
+      39: 'next',
+      32: 'play_pause'
+    },
+    "songs": [
+      {
+        "name": "No se ha puesto play a ninguna cancion",
+        "artist": "No Hay",
+        "album": "No hay",
+        "url": "",
+        "cover_art_url": ""
+      }
+    ]
+});
+
 fetch('https://ctplmdc.herokuapp.com/api/user-in-room', { 
     method: 'GET',
     credentials: 'include',
@@ -120,6 +137,7 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                     .then(json => {
                         console.log(json);
                         document.getElementById("cover_art_url").innerHTML = `<img src=\"${json['image_url']}\">`;
+                        Amplitude.setSongPlayedPercentage( ( parseFloat( json['time'] ) / parseFloat( json['duration']) ) * 100 );
                     })}, 3000);
             });
         });
