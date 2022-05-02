@@ -119,7 +119,7 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                         if (!response.ok){
                             return {}
                         } else {
-                            return response.json
+                            return response.json()
                         }
                     })
                     .then(json => {
