@@ -3,6 +3,29 @@
     <br><br><br><br>
     <img src="images/logo.png"></img>
     <br>
+    <div id="single-song-player">
+        <img data-amplitude-song-info="cover_art_url"/>
+        <div class="bottom-container">
+          <progress class="amplitude-song-played-progress" id="song-played-progress"></progress>
+  
+          <div class="time-container">
+            <span class="current-time">
+              <span class="amplitude-current-minutes"></span>:<span class="amplitude-current-seconds"></span>
+            </span>
+            <span class="duration">
+              <span class="amplitude-duration-minutes"></span>:<span class="amplitude-duration-seconds"></span>
+            </span>
+          </div>
+  
+          <div class="control-container">
+            <div class="amplitude-play-pause" id="play-pause"></div>
+            <div class="meta-container">
+              <span data-amplitude-song-info="name" class="song-name"></span>
+              <span data-amplitude-song-info="artist"></span>
+            </div>
+          </div>
+        </div>
+      </div>
     <p class="codeLittle mid">Room Code:</p>
     <button>
         <p id="code" class="mid code"></p>
