@@ -103,7 +103,7 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                                 }
                             }).then(response => response.json())
                             .then(json =>{
-                                console.log(json)
+                                window.location.replace(json['url'])
                             });
                         }
                         });
