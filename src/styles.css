@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,400&display=swap');
+ .create {
+   font-size:14px;
+   color:white;
+  }
+.create1 {
+  font-size:13px;
+  color:white;
+}
+a{
+  text-decoration:none;
+  color:white;
+  font-size:13px;
+}
+a:hover{
+  text-decoration:underline;
+}
+.createcontainer{
+  text-align: center;
+}
+.createcontainer2{
+  position: fixed;
+  left: 50%;
+  bottom: -10px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+@keyframes kahoot{25%{background:#41c4de;}50%{background:#8cc73f;}75%{background:#f3d333;}100%{background:#f78e56;}}
+body{
+  background:#42c4de;
+animation:kahoot 14s infinite;
+animation-direction:alternate;
+font-family: 'Montserrat', sans-serif;
+}
+input{
+  width:222px;
+  height:37px;
+  border:2px #CCD4D0 solid;
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+  transition:0.3s;
+  padding-top:4px;
+padding-right:6px;
+padding-bottom:4px;
+padding-left:6px;
+}
+button{
+  width:238px;
+  height:50px;
+  border: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+  transition:0.3s;
+  background-color: #333333;
+  color:white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align:center;
+  
+}
+input:focus{
+  border:2px black solid;
+}
+img{
+  width:255px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+input[type="text"]
+{
+    font-size:1.25rem;
+  text-align:center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:700;
+  color:black;
+}
+input::-webkit-input-placeholder {
+  font-family: 'Montserrat', sans-serif;
+  color:#B5B5B5;
+}
+
+input:-ms-input-placeholder {
+  font-family: 'Montserrat', sans-serif;
+  color:#B5B5B5;
+}
+
+input:-moz-placeholder {
+  font-family: 'Montserrat', sans-serif;
+  color:#B5B5B5;
+}
+
+input::-moz-placeholder {
+  font-family: 'Montserrat', sans-serif;
+  color:#B5B5B5;
+}
+input + button {
+  margin-top: 8px;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  font-size: 100%;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin:0;
+  padding:0;
+}
+.mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top:1em;
+}
+
+/* Switch starts here */
+.rocker {
+  display: inline-block;
+  position: relative;
+  /*
+  SIZE OF SWITCH
+  ==============
+  All sizes are in em - therefore
+  changing the font-size here
+  will change the size of the switch.
+  See .rocker-small below as example.
+  */
+  font-size: .5em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  width: 7em;
+  height: 4em;
+  overflow: hidden;
+  border-bottom: 0.5em solid #eee;
+}
+
+.rocker-small {
+  font-size: 0.75em; /* Sizes the switch */
+  margin: 1em;
+}
+
+.rocker::before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #Bcb8b1;
+  border: 0.5em solid #eee;
+  border-bottom: 0;
+}
+
+.rocker input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-left,
+.switch-right {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  width: 3em;
+  transition: .2s;
+}
+
+.switch-left {
+  height: 2.4em;
+  width: 2.75em;
+  left: 0.85em;
+  bottom: 0.4em;
+  background-color: #ddd;
+  transform: rotate(15deg) skewX(15deg);
+}
+
+.switch-right {
+  right: 0.5em;
+  bottom: 0;
+  background-color: #D90429;
+  color: #fff;
+}
+
+.switch-left::before,
+.switch-right::before {
+  content: "";
+  position: absolute;
+  width: 0.4em;
+  height: 2.45em;
+  bottom: -0.45em;
+  background-color: #ccc;
+  transform: skewY(-65deg);
+}
+
+.switch-left::before {
+  left: -0.4em;
+}
+
+.switch-right::before {
+  right: -0.375em;
+  background-color: transparent;
+  transform: skewY(65deg);
+}
+
+input:checked + .switch-left {
+  background-color: #02C39A;
+  color: #fff;
+  bottom: 0px;
+  left: 0.5em;
+  height: 2.5em;
+  width: 3em;
+  transform: rotate(0deg) skewX(0deg);
+}
+
+input:checked + .switch-left::before {
+  background-color: transparent;
+  width: 3.0833em;
+}
+
+input:checked + .switch-left + .switch-right {
+  background-color: #ddd;
+  color: #888;
+  bottom: 0.4em;
+  right: 0.8em;
+  height: 2.4em;
+  width: 2.75em;
+  transform: rotate(-15deg) skewX(-15deg);
+}
+
+input:checked + .switch-left + .switch-right::before {
+  background-color: #ccc;
+}
+
+.code {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 23px;
+  margin-top: -20px;
+  font-weight: 1000;
+}
+
+.codeLittle {
+  font-family: 'Montserrat', sans-serif;
+  font-size:13px;
+}
+
+.icono img{
+  width: 40px,
+}
+

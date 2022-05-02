@@ -1,2 +1,0 @@
-# Tarea {} - Grupo{}
-Description
