@@ -62,23 +62,6 @@ const urlLocationHandler = async () => {
     });
 }
 
-Amplitude.init({
-    "bindings": {
-      37: 'prev',
-      39: 'next',
-      32: 'play_pause'
-    },
-    "songs": [
-      {
-        "name": "No se ha puesto play a ninguna cancion",
-        "artist": "No Hay",
-        "album": "No hay",
-        "url": "",
-        "cover_art_url": ""
-      }
-    ]
-});
-
 fetch('https://ctplmdc.herokuapp.com/api/user-in-room', { 
     method: 'GET',
     credentials: 'include',
