@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "web-push": "^3.4.5",
-    "http-server": "^14"
+    "http-server": "^14",
+    "web-push": "^3.4.5"
   }
 }
