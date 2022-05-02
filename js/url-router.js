@@ -122,8 +122,9 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                         document.getElementById("cover_art_url").innerHTML = `<img src=\"${json['image_url']}\">`;
                         document.getElementById('song-played-progress').value = parseFloat(json['time']);
                         document.getElementById('song-played-progress').max = parseFloat(json['duration']);
-                        document.getElementById('current-minutes').innerHTML = parseInt(parseFloat(json['time'])*0.0000166667).toString();
-                        document.getElementById('current-seconds').innerHTML = (parseFloat(json['time'])*0.0166667).toString().substring(2,4);
+                        const date = new Date(json['time']);
+                        document.getElementById('current-minutes').innerHTML = date.getMinutes();
+                        document.getElementById('current-seconds').innerHTML = date.getSeconds();
                     })}, 3000);
             });
         });
