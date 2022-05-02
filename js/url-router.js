@@ -108,6 +108,24 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                         }
                         });
                 }
+                fetch('https://ctplmdc.herokuapp.com/spotify/current-song', { 
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        "accept": "application/json",
+                        'Content-Type': 'application/json'
+                    }
+                    }).then((response) => {
+                        if (!response.ok){
+                            return {}
+                        } else {
+                            return response.json
+                        }
+                    })
+                    .then(json => {
+                        console.log('matias')
+                        console.log(json);
+                    });
             });
         });
     }
