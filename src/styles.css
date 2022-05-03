@@ -414,27 +414,9 @@ a.learn-more{
   padding: 20px;
   font-weight: 100;
 }
-/*
-  Small only
-*/
-/*
-  Medium only
-*/
-/*
-  Large Only
-*/
-/*
-  4. Pages
-*/
-/*
-  5. Themes
-*/
-/*
-  6. Utils
-*/
-/*
-  7. Vendors
-*/
 
-/*# sourceMappingURL=app.css.map */
+.next_song{
+  filter: invert(0%);
+  width: 10%;
+}
 
