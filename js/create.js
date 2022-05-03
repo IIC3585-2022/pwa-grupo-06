@@ -1,3 +1,45 @@
+function getSongInfo(){
+    fetch('https://ctplmdc.herokuapp.com/spotify/current-song', { 
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                "accept": "application/json",
+                'Content-Type': 'application/json'
+            }
+            }).then((response) => {
+                if (!response.ok){
+                    return {}
+                } else {
+                    return response.json();
+                }
+            })
+            .then(json => {
+                console.log(json);
+                document.getElementById("cover_art_url").innerHTML = `<img data-amplitude-song-info=\"cover_art_url\" src=\"${json['image_url']}\">`;
+                document.getElementById('song-played-progress').value = parseFloat(json['time']);
+                document.getElementById('song-played-progress').max = parseFloat(json['duration']);
+                const date_current = new Date(json['time']);
+                document.getElementById('current-minutes').innerHTML = date_current.getMinutes();
+                document.getElementById('current-seconds').innerHTML = date_current.getSeconds();
+                const date_duration = new Date(json['duration']);
+                document.getElementById('duration-minutes').innerHTML = date_duration.getMinutes();
+                document.getElementById('duration-seconds').innerHTML = date_duration.getSeconds();
+                document.getElementById('name').innerHTML = json['title'];
+                document.getElementById('artist').innerHTML = json['artist'];
+                if (json['is_playing'] == false || json['is_playing'] == 'false'){
+                    document.getElementById('play-pause').classList.remove('amplitude-playing');
+                    document.getElementById('play-pause').classList.add('amplitude-paused');
+                } else {
+                    document.getElementById('play-pause').classList.remove('amplitude-paused');
+                    document.getElementById('play-pause').classList.add('amplitude-playing');
+                }
+            })
+}
+
+
+
+
+
 function create() {
     let votes_to_skip = document.getElementById('votes_to_skip');
     let guest_can_pause = document.getElementById('guest_can_pause');
@@ -51,41 +93,7 @@ function create() {
                             window.location.replace(json['url'])
                         });
                     } else {
-                        setInterval(function(){fetch('https://ctplmdc.herokuapp.com/spotify/current-song', { 
-                            method: 'GET',
-                            credentials: 'include',
-                            headers: {
-                                "accept": "application/json",
-                                'Content-Type': 'application/json'
-                            }
-                            }).then((response) => {
-                                if (!response.ok){
-                                    return {}
-                                } else {
-                                    return response.json();
-                                }
-                            })
-                            .then(json => {
-                                console.log(json);
-                                document.getElementById("cover_art_url").innerHTML = `<img data-amplitude-song-info=\"cover_art_url\" src=\"${json['image_url']}\">`;
-                                document.getElementById('song-played-progress').value = parseFloat(json['time']);
-                                document.getElementById('song-played-progress').max = parseFloat(json['duration']);
-                                const date_current = new Date(json['time']);
-                                document.getElementById('current-minutes').innerHTML = date_current.getMinutes();
-                                document.getElementById('current-seconds').innerHTML = date_current.getSeconds();
-                                const date_duration = new Date(json['duration']);
-                                document.getElementById('duration-minutes').innerHTML = date_duration.getMinutes();
-                                document.getElementById('duration-seconds').innerHTML = date_duration.getSeconds();
-                                document.getElementById('name').innerHTML = json['title'];
-                                document.getElementById('artist').innerHTML = json['artist'];
-                                if (json['is_playing'] == false || json['is_playing'] == 'false'){
-                                    document.getElementById('play-pause').classList.remove('amplitude-playing');
-                                    document.getElementById('play-pause').classList.add('amplitude-paused');
-                                } else {
-                                    document.getElementById('play-pause').classList.remove('amplitude-paused');
-                                    document.getElementById('play-pause').classList.add('amplitude-playing');
-                                }
-                            })}, 3000);
+                        setInterval(getSongInfo(), 3000);
                     }
                     });
             });
@@ -121,41 +129,7 @@ function join() {
                     document.getElementById("code").innerHTML = json['code'];
                 });
             });
-            setInterval(function(){fetch('https://ctplmdc.herokuapp.com/spotify/current-song', { 
-                    method: 'GET',
-                    credentials: 'include',
-                    headers: {
-                        "accept": "application/json",
-                        'Content-Type': 'application/json'
-                    }
-                    }).then((response) => {
-                        if (!response.ok){
-                            return {}
-                        } else {
-                            return response.json();
-                        }
-                    })
-                    .then(json => {
-                        console.log(json);
-                        document.getElementById("cover_art_url").innerHTML = `<img data-amplitude-song-info=\"cover_art_url\" src=\"${json['image_url']}\">`;
-                        document.getElementById('song-played-progress').value = parseFloat(json['time']);
-                        document.getElementById('song-played-progress').max = parseFloat(json['duration']);
-                        const date_current = new Date(json['time']);
-                        document.getElementById('current-minutes').innerHTML = date_current.getMinutes();
-                        document.getElementById('current-seconds').innerHTML = date_current.getSeconds();
-                        const date_duration = new Date(json['duration']);
-                        document.getElementById('duration-minutes').innerHTML = date_duration.getMinutes();
-                        document.getElementById('duration-seconds').innerHTML = date_duration.getSeconds();
-                        document.getElementById('name').innerHTML = json['title'];
-                        document.getElementById('artist').innerHTML = json['artist'];
-                        if (json['is_playing'] == false || json['is_playing'] == 'false'){
-                            document.getElementById('play-pause').classList.remove('amplitude-playing');
-                            document.getElementById('play-pause').classList.add('amplitude-paused');
-                        } else {
-                            document.getElementById('play-pause').classList.remove('amplitude-paused');
-                            document.getElementById('play-pause').classList.add('amplitude-playing');
-                        }
-                    })}, 3000);
+            setInterval(getSongInfo(), 3000);
           }
         }).catch(err => alert(err))
 }
