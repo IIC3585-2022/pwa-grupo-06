@@ -186,10 +186,7 @@ function play() {
                 "accept": "application/json",
                 'Content-Type': 'application/json'
             }
-            }).then(response => response.json())
-      .then(json => {
-          console.log(json);
-        }).catch(err => alert(err));
+            }).catch(err => alert(err));
 }
 
 function pause() {
@@ -200,17 +197,15 @@ function pause() {
                 "accept": "application/json",
                 'Content-Type': 'application/json'
             }
-            }).then(response => response.json())
-      .then(json => {
-          console.log(json);
-        }).catch(err => alert(err));
+            }).catch(err => alert(err));
 }
 
 function playPause() {
     if (document.getElementById('play-pause').classList.length > 1){
         if  (document.getElementById('play-pause').classList[1] == "amplitude-paused"){
             play();
-            console.log(document.getElementById('play-pause').classList);
+        } else {
+            pause();
         }
     }
 }
