@@ -181,3 +181,14 @@ function playPause() {
         }
     }
 }
+
+function vote(){
+    fetch('https://ctplmdc.herokuapp.com/spotify/skip', { 
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                "accept": "application/json",
+                'Content-Type': 'application/json'
+            }
+            })
+}
