@@ -393,11 +393,11 @@ div#single-song-player {
   margin: auto;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   margin-top: 50px;
-  width: 80%;
+  width: 70%;
   max-width: 460px;
   -webkit-font-smoothing: antialiased; }
   div#single-song-player img[data-amplitude-song-info="cover_art_url"] {
-    width: 80%;
+    width: 100%;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px; }
 
