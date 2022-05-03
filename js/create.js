@@ -207,5 +207,10 @@ function pause() {
 }
 
 function playPause() {
-    console.log(document.getElementById('play-pause').classList)
+    if (document.getElementById('play-pause').classList.length > 1){
+        if  (document.getElementById('play-pause').classList[1] == "amplitude-paused"){
+            play();
+            console.log(document.getElementById('play-pause').classList);
+        }
+    }
 }
