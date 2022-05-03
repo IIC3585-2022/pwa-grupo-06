@@ -128,6 +128,8 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                         const date_duration = new Date(json['duration']);
                         document.getElementById('duration-minutes').innerHTML = date_duration.getMinutes();
                         document.getElementById('duration-seconds').innerHTML = date_duration.getSeconds();
+                        document.getElementById('name').innerHTML = json['title'];
+                        document.getElementById('artist').innerHTML = json['artist'];
                         if (json['is_playing'] == false || json['is_playing'] == 'false'){
                             document.getElementById('play-pause').classList.remove('amplitude-playing');
                             document.getElementById('play-pause').classList.add('amplitude-paused');
