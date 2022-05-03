@@ -27,7 +27,7 @@ function getSongInfo(){
                 document.getElementById('name').innerHTML = json['title'];
                 document.getElementById('artist').innerHTML = json['artist'];
                 document.getElementById('votes').innerHTML = json['votes'] + ' / ';
-                document.getElementById('votes').innerHTML = json['votes_required'];
+                document.getElementById('votes').innerHTML += json['votes_required'];
                 if (json['is_playing'] == false || json['is_playing'] == 'false'){
                     document.getElementById('play-pause').classList.remove('amplitude-playing');
                     document.getElementById('play-pause').classList.add('amplitude-paused');
