@@ -177,3 +177,35 @@ function exit() {
         });
         }).catch(err => alert(err))
 }
+
+function play() {
+    fetch('https://ctplmdc.herokuapp.com/spotify/play', { 
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+                "accept": "application/json",
+                'Content-Type': 'application/json'
+            }
+            }).then(response => response.json())
+      .then(json => {
+          console.log(json);
+        }).catch(err => alert(err));
+}
+
+function pause() {
+    fetch('https://ctplmdc.herokuapp.com/spotify/pause', { 
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+                "accept": "application/json",
+                'Content-Type': 'application/json'
+            }
+            }).then(response => response.json())
+      .then(json => {
+          console.log(json);
+        }).catch(err => alert(err));
+}
+
+function playPause() {
+    console.log(document.getElementById('play-pause').classList)
+}
