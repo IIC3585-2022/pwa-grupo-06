@@ -119,7 +119,7 @@ fetch('https://ctplmdc.herokuapp.com/api/user-in-room', {
                     })
                     .then(json => {
                         console.log(json);
-                        document.getElementById("cover_art_url").innerHTML = `<img src=\"${json['image_url']}\">`;
+                        document.getElementById("cover_art_url").innerHTML = `<img data-amplitude-song-info=\"cover_art_url\" src=\"${json['image_url']}\">`;
                         document.getElementById('song-played-progress').value = parseFloat(json['time']);
                         document.getElementById('song-played-progress').max = parseFloat(json['duration']);
                         const date_current = new Date(json['time']);
