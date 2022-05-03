@@ -397,7 +397,7 @@ div#single-song-player {
   max-width: 460px;
   -webkit-font-smoothing: antialiased; }
   div#single-song-player img[data-amplitude-song-info="cover_art_url"] {
-    width: 100%;
+    width: 50%;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px; }
 
