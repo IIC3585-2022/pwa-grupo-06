@@ -420,3 +420,7 @@ a.learn-more{
   width: 10%;
 }
 
+.flex-container{
+  display: flex;
+}
+
