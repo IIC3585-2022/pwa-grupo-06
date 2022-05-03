@@ -7,11 +7,13 @@ self.addEventListener("install", e => {
 });
 
 self.addEventListener("fetch", e => {
-    e.respondWith(
-        caches.match(e.request).then(response => {
-            return response || fetch(e.request);
-        })
-        )
+  e.respondWith(
+    fromNetwork(e.request, 10000).catch(() => caches.match(e.request)
+    .then(response => {
+      return response || fetch(e.request);
+    })
+    )
+  );
 });
 
 self.addEventListener('push', function(e) {
