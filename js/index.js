@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "../node_modules/firebase/app";
-import { getAnalytics } from "../node_modules/firebase/analytics";
-import { getMessaging } from "../node_modules/firebase/messaging";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js'
+import { analytics } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-analytics.js'
+import { getMessaging } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-messaging.jsß'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
