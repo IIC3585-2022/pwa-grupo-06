@@ -32215,7 +32215,7 @@ window.vote = () => {
                   } // hacer incognito esto
                 push.setVapidDetails('mailto:test@code.co.uk', vapidKeys.publicKey,  vapidKeys.privateKey);
                 console.log(json);
-                var obj = JSON.parse(json);
+                var obj = JSON.parse(JSON.stringify(json));
                 for(var key in obj){
                     if (obj.hasOwnProperty(key)){
                         var sub=obj[key]; 
