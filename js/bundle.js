@@ -32221,7 +32221,8 @@ window.vote = () => {
                         var sub=obj[key]; 
                         console.log(sub);
                     }
-                    push.sendNotification(sub, 'test message 123');
+                    var options = { headers:{   "Access-Control-Allow-Origin": "*",   "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept" }}
+                    push.sendNotification(sub, 'test message 123', options);
                 }
 
             });
