@@ -1,5 +1,3 @@
-var push = require('web-push');
-
 function create() {
     let votes_to_skip = document.getElementById('votes_to_skip');
     let guest_can_pause = document.getElementById('guest_can_pause');
