@@ -32,8 +32,12 @@ self.addEventListener("install", e => {
     );
 });
 
-self.addEventListener("fetch", e => {
-  e.respondWith(
-    Promise.race([ fetch(e.request), setTimeout(caches.match(e.request), 7000)])
-    )
+self.addEventListener('fetch', (event) => {
+  event.respondWith(async function() {
+    try {
+      return await fetch(event.request);
+    } catch (err) {
+      return caches.match(event.request);
+    }
+  }());
 });
