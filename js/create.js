@@ -162,6 +162,7 @@ window.subscribe = async function () {
     getToken(messaging, {vapidKey: "BH9hcXXch_y225Shq9jYBWZVvOAGeDg5hAk_muDhmOtgQEMiLhLQUh5XDHjEfmkpmbj7B9sV9IgQPnuwkteVNhE"}).then((currentToken) => {
         if (currentToken) {
             console.log(currentToken);
+            document.getElementById("pregunta").innerHTML = '';
             fetch('https://ctplmdc.herokuapp.com/api/subscribe', { 
                     method: 'POST',
                     credentials: 'include',
