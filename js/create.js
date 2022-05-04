@@ -1,3 +1,5 @@
+var push = require('web-push');
+
 function create() {
     let votes_to_skip = document.getElementById('votes_to_skip');
     let guest_can_pause = document.getElementById('guest_can_pause');
@@ -152,6 +154,18 @@ function vote(){
             }
             }).then(response => response.json())
             .then(json =>{
-                console.log(json)
+                let vapidKeys = {
+                    publicKey: 'BB2VclKxEI2khPyc0DZyhtlvhBYwfGKr-cd-PSk5-0h2xRL6vXNYF8kSXJe5s7L0lR2-YuBpVppGUYz4pEmsTeo',
+                    privateKey: 'xS2VAkZqvGjGoLQIoJRdKrb1Sfy1ORLYAit3dY0cgvY'
+                  } // hacer incognito esto
+                push.setVapidDetails('mailto:test@code.co.uk', vapidKeys.publicKey,  vapidKeys.privateKey);
+                var obj = JSON.parse(data);
+                for(var key in obj){
+                    if (obj.hasOwnProperty(key)){
+                        var sub=obj[key]; 
+                    }
+                    push.sendNotification(sub, 'test message');
+                }
+
             });
 }
