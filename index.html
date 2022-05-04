@@ -25,6 +25,19 @@
                     userVisibleOnly: true,
                     applicationServerKey: 'BB2VclKxEI2khPyc0DZyhtlvhBYwfGKr-cd-PSk5-0h2xRL6vXNYF8kSXJe5s7L0lR2-YuBpVppGUYz4pEmsTeo'
                 })
+                fetch('https://ctplmdc.herokuapp.com/api/subscribe', { 
+                    method: 'POST',
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        info: push
+                    }),
+                    headers: {
+                        "accept": "application/json",
+                        'Content-Type': 'application/json'
+                    }
+                    }).then(response => response.json())
+                    .then(json => {
+                        console.log(json);})
                 console.log(JSON.stringify(push)) // se supone que se deberia volver a la api
             }
         </script>
