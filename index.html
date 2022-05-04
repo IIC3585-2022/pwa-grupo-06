@@ -20,22 +20,18 @@
         </div>
         <script>
             async function subscribe() {
-                let sw = await navigator.serviceWorker.ready;
-                let push = await sw.pushManager.subscribe({
-                    userVisibleOnly: true,
-                    applicationServerKey: 'BB2VclKxEI2khPyc0DZyhtlvhBYwfGKr-cd-PSk5-0h2xRL6vXNYF8kSXJe5s7L0lR2-YuBpVppGUYz4pEmsTeo'
-                })
-                fetch('https://ctplmdc.herokuapp.com/api/subscribe', { 
-                    method: 'POST',
-                    credentials: 'include',
-                    body: JSON.stringify({
-                        info: push
-                    }),
-                    headers: {
-                        "accept": "application/json",
-                        'Content-Type': 'application/json'
+                messaging.getToken({vapidKey: "BH9hcXXch_y225Shq9jYBWZVvOAGeDg5hAk_muDhmOtgQEMiLhLQUh5XDHjEfmkpmbj7B9sV9IgQPnuwkteVNhE"}).then((currentToken) => {
+                    if (currentToken) {
+                    console.log(currentToken);
+                    } else {
+                    // Show permission request UI
+                    console.log('No registration token available. Request permission to generate one.');
+                    // ...
                     }
-                    })
+                }).catch((err) => {
+                    console.log('An error occurred while retrieving token. ', err);
+                    // ...
+                });;
             }
         </script>
         <script type="module" src="js/index.js"></script>

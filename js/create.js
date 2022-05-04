@@ -1,6 +1,4 @@
-var push = require('web-push');
-
-window.create = () => {
+function create() {
     let votes_to_skip = document.getElementById('votes_to_skip');
     let guest_can_pause = document.getElementById('guest_can_pause');
     let errorElement = document.getElementById('error');
@@ -61,7 +59,7 @@ window.create = () => {
         }).catch(err => alert(err))
 }
 
-window.join = () => {
+function join() {
     let room_pin = document.getElementById('room_pin');
     let errorElement = document.getElementById('error_join');
     if (room_pin.value == '' || room_pin.value == null){
@@ -94,7 +92,7 @@ window.join = () => {
         }).catch(err => alert(err))
 }
 
-window.exit = () => {
+function exit() {
     fetch('https://ctplmdc.herokuapp.com/api/leave-room', { 
             method: 'POST',
             credentials: 'include',
@@ -112,7 +110,7 @@ window.exit = () => {
         }).catch(err => alert(err))
 }
 
-window.play = () => {
+function play() {
     fetch('https://ctplmdc.herokuapp.com/spotify/play', { 
             method: 'PUT',
             credentials: 'include',
@@ -123,7 +121,7 @@ window.play = () => {
             }).catch(err => alert(err));
 }
 
-window.pause = () => {
+function pause() {
     fetch('https://ctplmdc.herokuapp.com/spotify/pause', { 
             method: 'PUT',
             credentials: 'include',
@@ -134,7 +132,7 @@ window.pause = () => {
             }).catch(err => alert(err));
 }
 
-window.playPause = () => {
+function playPause() {
     if (document.getElementById('play-pause').classList.length > 1){
         if  (document.getElementById('play-pause').classList[1] == "amplitude-paused"){
             play();
@@ -144,7 +142,7 @@ window.playPause = () => {
     }
 }
 
-window.vote = () => {
+function vote(){
     fetch('https://ctplmdc.herokuapp.com/spotify/skip', { 
             method: 'POST',
             credentials: 'include',
@@ -154,21 +152,6 @@ window.vote = () => {
             }
             }).then(response => response.json())
             .then(json =>{
-                let vapidKeys = {
-                    publicKey: 'BB2VclKxEI2khPyc0DZyhtlvhBYwfGKr-cd-PSk5-0h2xRL6vXNYF8kSXJe5s7L0lR2-YuBpVppGUYz4pEmsTeo',
-                    privateKey: 'xS2VAkZqvGjGoLQIoJRdKrb1Sfy1ORLYAit3dY0cgvY'
-                  } // hacer incognito esto
-                push.setVapidDetails('mailto:test@code.co.uk', vapidKeys.publicKey,  vapidKeys.privateKey);
                 console.log(json);
-                var obj = JSON.parse(JSON.stringify(json));
-                for(var key in obj){
-                    if (obj.hasOwnProperty(key)){
-                        var sub=obj[key]; 
-                        console.log(sub);
-                    }
-                    var options = { headers:{   "Access-Control-Allow-Origin": "*",   "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept" }}
-                    push.sendNotification(sub, 'test message 123', options);
-                }
-
             });
 }
