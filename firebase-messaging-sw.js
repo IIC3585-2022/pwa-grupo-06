@@ -24,4 +24,8 @@ messaging.onBackgroundMessage((payload) => {
   
     self.registration.showNotification(notificationTitle,
       notificationOptions);
-  });
+});
+
+messaging.onMessage((payload) => {
+    console.log('Message received. ', payload);
+});
