@@ -23,3 +23,17 @@ messaging.onBackgroundMessage((payload) => {
     self.registration.showNotification(notificationTitle,
       notificationOptions);
 });
+
+self.addEventListener("install", e => {
+    e.waitUntil(
+        caches.open("static").then(cache => {
+            cache.addAll(['./', './src/styles.css', './images/logo.png', './images/manifest-icon-192.maskable.png', './images/next_song.png'])
+        })
+    );
+});
+
+self.addEventListener("fetch", e => {
+  e.respondWith(
+    Promise.race([ fetch(e.request), setTimeout(caches.match(e.request), 7000)])
+    )
+});
