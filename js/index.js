@@ -31,11 +31,12 @@ if ("serviceWorker" in navigator) {
 }
 
 onMessage(messaging, (payload) => {
+    console.log(payload);
     console.log(payload['notification']);
-    const notificationTitle = 'Background Message Title';
+    const notificationTitle = payload['notification']['title'];
     const notificationOptions = {
-      body: 'Background Message body.',
-      icon: '/firebase-logo.png'
+      body: payload['notification']['body'],
+      icon: payload['notification']['image']
     };
   
     self.registration.showNotification(notificationTitle,
