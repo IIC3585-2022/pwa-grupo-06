@@ -38,9 +38,6 @@ onMessage(messaging, (payload) => {
       body: payload['notification']['body'],
       icon: payload['notification']['image']
     };
-  
-    self.registration.showNotification(notificationTitle,
-      notificationOptions);
   });
 
 export {app, analytics, messaging, getToken};
