@@ -162,13 +162,21 @@ window.subscribe = async function () {
     getToken(messaging, {vapidKey: "BH9hcXXch_y225Shq9jYBWZVvOAGeDg5hAk_muDhmOtgQEMiLhLQUh5XDHjEfmkpmbj7B9sV9IgQPnuwkteVNhE"}).then((currentToken) => {
         if (currentToken) {
             console.log(currentToken);
+            fetch('https://ctplmdc.herokuapp.com/api/subscribe', { 
+                    method: 'POST',
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        info: currentToken
+                    }),
+                    headers: {
+                        "accept": "application/json",
+                        'Content-Type': 'application/json'
+                    }
+                    })
         } else {
-        // Show permission request UI
         console.log('No registration token available. Request permission to generate one.');
-        // ...
         }
     }).catch((err) => {
         console.log('An error occurred while retrieving token. ', err);
-        // ...
     });;
 }
