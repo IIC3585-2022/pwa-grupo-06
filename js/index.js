@@ -31,7 +31,15 @@ if ("serviceWorker" in navigator) {
 }
 
 onMessage(messaging, (payload) => {
-    console.log('Message received. ', payload);
+    console.log(payload['notification']);
+    const notificationTitle = 'Background Message Title';
+    const notificationOptions = {
+      body: 'Background Message body.',
+      icon: '/firebase-logo.png'
+    };
+  
+    self.registration.showNotification(notificationTitle,
+      notificationOptions);
   });
 
 export {app, analytics, messaging, getToken};
