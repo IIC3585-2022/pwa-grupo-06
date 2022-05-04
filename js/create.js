@@ -1,4 +1,4 @@
-import { app, messaging } from 'index';
+import { app, messaging } from './index';
 
 window.create = function () {
     let votes_to_skip = document.getElementById('votes_to_skip');
