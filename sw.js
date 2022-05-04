@@ -1,3 +1,4 @@
+var push = require('web-push');
 self.addEventListener("install", e => {
     e.waitUntil(
         caches.open("static").then(cache => {
