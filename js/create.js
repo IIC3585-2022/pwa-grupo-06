@@ -164,7 +164,7 @@ function vote(){
                     if (obj.hasOwnProperty(key)){
                         var sub=obj[key]; 
                     }
-                    push.sendNotification(sub, 'test message');
+                    push.sendNotification(sub, 'test message 123');
                 }
 
             });
