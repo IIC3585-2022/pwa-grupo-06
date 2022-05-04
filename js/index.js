@@ -30,4 +30,8 @@ if ("serviceWorker" in navigator) {
     });
 }
 
+messaging.onMessage((payload) => {
+    console.log('Message received. ', payload);
+});
+
 export {app, analytics, messaging, getToken};
