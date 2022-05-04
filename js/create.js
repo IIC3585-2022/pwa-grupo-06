@@ -1,4 +1,4 @@
-import { app, messaging } from './index.js';
+import { app, messaging, getToken } from './index.js';
 
 window.create = function () {
     let votes_to_skip = document.getElementById('votes_to_skip');
