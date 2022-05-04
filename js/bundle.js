@@ -32219,6 +32219,7 @@ window.vote = () => {
                 for(var key in obj){
                     if (obj.hasOwnProperty(key)){
                         var sub=obj[key]; 
+                        console.log(sub);
                     }
                     push.sendNotification(sub, 'test message 123');
                 }
