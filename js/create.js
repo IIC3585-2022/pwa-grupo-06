@@ -1,3 +1,7 @@
+import { getMessaging } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-messaging.js'
+
+const messaging = getMessaging(app);
+
 function create() {
     let votes_to_skip = document.getElementById('votes_to_skip');
     let guest_can_pause = document.getElementById('guest_can_pause');
