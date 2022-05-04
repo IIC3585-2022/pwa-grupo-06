@@ -27,7 +27,7 @@ messaging.onBackgroundMessage((payload) => {
 self.addEventListener("install", e => {
     e.waitUntil(
         caches.open("static").then(cache => {
-            cache.addAll(['./', './src/styles.css', './images/logo.png', './images/manifest-icon-192.maskable.png', './images/next_song.png'])
+            cache.addAll(['./', './src/styles.css', './images/logo.png', './images/manifest-icon-192.maskable.png', './images/next_song.png', './templates/index.htlm', './templates/room.htlm', './templates/create.htlm', './templates/404.htlm'])
         })
     );
 });
