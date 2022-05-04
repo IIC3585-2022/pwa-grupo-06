@@ -17,6 +17,11 @@ const firebaseConfig = {
   measurementId: "G-82XYRRQSDM"
 };
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const messaging = getMessaging(app);
+
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("firebase-messaging-sw.js").then(registration => {
         console.log(registration);
@@ -24,10 +29,5 @@ if ("serviceWorker" in navigator) {
         console.error(error);
     });
 }
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const messaging = getMessaging(app);
 
 export {app, analytics, messaging, getToken};
