@@ -31,8 +31,6 @@ if ("serviceWorker" in navigator) {
 }
 
 onMessage(messaging, (payload) => {
-    console.log(payload);
-    console.log(payload['notification']);
     const notificationTitle = payload['notification']['title'];
     const notificationOptions = {
       body: payload['notification']['body'],
