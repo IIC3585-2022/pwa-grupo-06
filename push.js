@@ -1,12 +1,15 @@
 var push = require('web-push');
 
-let vapidKeys = {
-    publicKey: 'BB2VclKxEI2khPyc0DZyhtlvhBYwfGKr-cd-PSk5-0h2xRL6vXNYF8kSXJe5s7L0lR2-YuBpVppGUYz4pEmsTeo',
-    privateKey: 'xS2VAkZqvGjGoLQIoJRdKrb1Sfy1ORLYAit3dY0cgvY'
-  } // hacer incognito esto
+let vapidKeys = push.generateVAPIDKeys();
+
+console.log(vapidKeys);
 
 push.setVapidDetails('mailto:test@code.co.uk', vapidKeys.publicKey,  vapidKeys.privateKey);
 
-// let sub = {"endpoint":"https://fcm.googleapis.com/fcm/send/fANgvJxDt5I:APA91bHEY8SUuXWtrLMPSVk-VEHVmL6Yz-TtM78yQ_H1TitwCW11JBCNu3t07MA3AeciX5Rw5F4TMpMzTRg_HqGZFo5NSASlp_nHFjYXJNUZjRJ9LESaFzzHca-pValLEwK2ZhQjqQdA","expirationTime":null,"keys":{"p256dh":"BOYny-wiJCEA3QbIdLa3TsJ-wmjPe1QEZ110-39Qyts6DZGFEBcnwbDE7iP2_OsnRPh1jC4iAn6oVrzs1v82DRo","auth":"7nSYTBasVEFqnxyY_YJOdQ"}};
+let sub = {"endpoint":"https://fcm.googleapis.com/fcm/send/cG8JPyJW7G4:APA91bHTJzVkLtydtmYn1uApTYYUuG8DVo3QNO6610ldlzeS_VlD0pEe27sMRJThXEhEGiIWpNc0EQNf4biYWolTl2NnO1w3dBpBN6GQovi9qtKDo7q1qGLNkjw3m0LWe2zCnuxYJ1gn",
+"expirationTime":null,
+"keys":{
+"p256dh":"BJe5I1AX-Xo_LrmCzFRx2LlphFsmDu7KsAf_JipoCv7tlV3deW_3q7nk9DqKoE5IalLsj0sHn6A_DVjMWlO5XOc",
+"auth":"yj0p-XaxKqvekZlV7SXhsQ"}};
 
-push.sendNotification(sub, 'test message');
+push.sendNotification(sub, 'test message123');
