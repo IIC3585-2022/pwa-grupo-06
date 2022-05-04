@@ -38,6 +38,9 @@ onMessage(messaging, (payload) => {
       body: payload['notification']['body'],
       icon: payload['notification']['image']
     };
+  
+    showNotification(notificationTitle,
+      notificationOptions);
   });
 
 export {app, analytics, messaging, getToken};
