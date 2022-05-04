@@ -1,6 +1,6 @@
 var push = require('web-push');
 
-function create() {
+window.create = () => {
     let votes_to_skip = document.getElementById('votes_to_skip');
     let guest_can_pause = document.getElementById('guest_can_pause');
     let errorElement = document.getElementById('error');
@@ -61,7 +61,7 @@ function create() {
         }).catch(err => alert(err))
 }
 
-function join() {
+window.join = () => {
     let room_pin = document.getElementById('room_pin');
     let errorElement = document.getElementById('error_join');
     if (room_pin.value == '' || room_pin.value == null){
@@ -94,7 +94,7 @@ function join() {
         }).catch(err => alert(err))
 }
 
-function exit() {
+window.exit = () => {
     fetch('https://ctplmdc.herokuapp.com/api/leave-room', { 
             method: 'POST',
             credentials: 'include',
@@ -112,7 +112,7 @@ function exit() {
         }).catch(err => alert(err))
 }
 
-function play() {
+window.play = () => {
     fetch('https://ctplmdc.herokuapp.com/spotify/play', { 
             method: 'PUT',
             credentials: 'include',
@@ -123,7 +123,7 @@ function play() {
             }).catch(err => alert(err));
 }
 
-function pause() {
+window.pause = () => {
     fetch('https://ctplmdc.herokuapp.com/spotify/pause', { 
             method: 'PUT',
             credentials: 'include',
@@ -134,7 +134,7 @@ function pause() {
             }).catch(err => alert(err));
 }
 
-function playPause() {
+window.playPause = () => {
     if (document.getElementById('play-pause').classList.length > 1){
         if  (document.getElementById('play-pause').classList[1] == "amplitude-paused"){
             play();
@@ -144,7 +144,7 @@ function playPause() {
     }
 }
 
-function vote(){
+window.vote = () => {
     fetch('https://ctplmdc.herokuapp.com/spotify/skip', { 
             method: 'POST',
             credentials: 'include',
